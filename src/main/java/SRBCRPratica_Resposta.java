@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,12 +17,13 @@ public class SRBCRPratica_Resposta {
 
     @BeforeAll
     public static void beforeAll() {
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
-        driver = new ChromeDriver(options);
-        driver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().window().setSize(new Dimension(1366, 768));
+//        driver = new ChromeDriver(options);
+//        driver.manage().window().setPosition(new Point(0, 0));
+//        driver.manage().window().setSize(new Dimension(1366, 768));
         driver.get(URL);
     }
 
@@ -32,21 +34,24 @@ public class SRBCRPratica_Resposta {
 
     @Test
     public void testRadioButton() {
+        WebElement radioFacil = driver.findElement(By.id("facil"));
+        WebElement radioMedio = driver.findElement(By.id("medio"));
 
-        WebElement radioButton = driver.findElement(By.id("medio"));
+        radioFacil.click();
+        radioMedio.click();
 
-        radioButton.click();
-
-        Assertions.assertTrue(radioButton.isSelected());
+        Assertions.assertFalse(radioFacil.isSelected());
+        Assertions.assertTrue(radioMedio.isSelected());
     }
 
     @Test
     public void testCheckBox() {
-//        WebElement checkForno = driver.findElement(By.id("forno"));
+        WebElement checkForno = driver.findElement(By.id("forno"));
         WebElement checkMicroondas = driver.findElement(By.id("microondas"));
         checkMicroondas.click();
 
         Assertions.assertTrue(checkMicroondas.isSelected());
+        Assertions.assertFalse(checkForno.isSelected());
     }
 
     @Test
@@ -101,8 +106,7 @@ public class SRBCRPratica_Resposta {
 
         Assertions.assertEquals(2, ingredientes.getAllSelectedOptions().size());
 
-        List<String> ingredientesText = ingredientes.getAllSelectedOptions().stream().map(WebElement::getText)
-                .collect(Collectors.toList());
+        List<String> ingredientesText = ingredientes.getAllSelectedOptions().stream().map(WebElement::getText).collect(Collectors.toList());
 
         List<String> ingredientesEsperados = Arrays.asList("Frango", "Farinha");
 

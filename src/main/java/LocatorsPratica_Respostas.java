@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,6 +14,7 @@ public class LocatorsPratica_Respostas {
 
     @BeforeAll
     public static void beforeAll() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get(URL);
     }
