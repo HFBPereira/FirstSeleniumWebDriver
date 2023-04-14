@@ -1,13 +1,10 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ButtonsPratica {
-    private final static String URL = "https://igorsmasc.github.io/botoes_atividade_selenium/";
+    private static final String URL = "https://igorsmasc.github.io/botoes_atividade_selenium/";
     private static WebDriver driver;
 
     @BeforeAll
@@ -15,6 +12,7 @@ public class ButtonsPratica {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+//        driver.manage().window().setSize(new Dimension(1366, 768));
     }
 
     @BeforeEach
@@ -80,7 +78,9 @@ public class ButtonsPratica {
     @Test
     public void clickComLIVRE() {
         WebElement captureSwitch = driver.findElement(By.id("button6-switch"));
+//        Assertions.assertFalse(captureSwitch.isEnabled());
         captureSwitch.click();
+//        Assertions.assertTrue(captureSwitch.isEnabled());
 
         WebElement captureButton = driver.findElement(By.id("button6"));
         captureButton.click();
@@ -119,5 +119,4 @@ public class ButtonsPratica {
         Assertions.assertEquals("O link 3 foi selecionado.", alert.getText());
         alert.accept();
     }
-
 }
