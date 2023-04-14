@@ -35,7 +35,9 @@ public class SRBCRPratica_Resposta {
     @Test
     public void testRadioButton() {
         WebElement radioFacil = driver.findElement(By.id("facil"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click()", radioFacil);
         WebElement radioMedio = driver.findElement(By.id("medio"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click()", radioMedio);
 
         radioFacil.click();
         radioMedio.click();
