@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
 public class SRBCRPratica_Resposta {
     private static WebDriver driver;
     private static final String URL = "https://igorsmasc.github.io/praticando_selects_radio_checkbox/";
@@ -91,8 +92,7 @@ public class SRBCRPratica_Resposta {
         List<WebElement> elements = categorias.getOptions();
         Assertions.assertEquals(4, elements.size());
 
-        List<String> categoriasText = categorias.getOptions().stream().map(WebElement::getText)
-                .collect(Collectors.toList());
+        List<String> categoriasText = categorias.getOptions().stream().map(WebElement::getText).collect(Collectors.toList());
 
         List<String> categoriasEsperadas = Arrays.asList("Selecione uma opção", "Almoço e Janta", "Sobremesa", "Lanche");
 
