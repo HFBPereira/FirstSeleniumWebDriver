@@ -20,7 +20,3 @@ w
 G.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302,e\d\ed67eb178d523a4b3f117dcbe0eda5196367ceec
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-T
-$src/main/java/PrimeiraAutomacao.java,3\8\38324c9fc827285cbd0258e0934d6917ca4c61a0
-R
-"src/main/java/LocatorsPratica.java,0\4\04b8d4a57190795677f04fa797b77932776baa33
