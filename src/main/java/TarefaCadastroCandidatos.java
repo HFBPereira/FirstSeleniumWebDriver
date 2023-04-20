@@ -11,6 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class TarefaCadastroCandidatos {
     private static final String URL = "https://igorsmasc.github.io/fomulario_cadastro_selenium/";
     private static WebDriver driver;
@@ -62,5 +68,33 @@ public class TarefaCadastroCandidatos {
         Assertions.assertEquals("masculino", driver.findElement(By.xpath("//*[@id=\"table-cadastros-body\"]/tr/td[3]")).getAttribute("innerHTML"));
         Assertions.assertEquals("Backend, Testes", driver.findElement(By.xpath("//*[@id=\"table-cadastros-body\"]/tr/td[4]")).getAttribute("innerHTML"));
         Assertions.assertEquals("Backend", driver.findElement(By.xpath("//*[@id=\"table-cadastros-body\"]/tr/td[5]")).getAttribute("innerHTML"));
+
+
+//        WebElement cadastro = driver.findElement(By.id("table-cadastros-body"));
+
+//        WebElement cadastro = driver.findElement(By.xpath("/html/body/div[2]/table"));
+//        List<HashMap<String, WebElement>> userTable = new ArrayList<HashMap<String, WebElement>>();
+//        List<WebElement> rowElements = cadastro.findElements(By.xpath("/html/body/div[2]/table/thead/tr"));
+//
+//        List<String> columnNames = new ArrayList<String>();
+//        List<WebElement> headerElements = rowElements.get(0).findElements(By.xpath("/html/body/div[2]/table/thead/tr/th[1]"));
+//        for (WebElement headerElement: headerElements) {
+//            columnNames.add(headerElement.getText());
+//        }
+//
+//        for (WebElement rowElement: rowElements) {
+//            HashMap<String, WebElement> row = new HashMap<String, WebElement>();
+//            int columnIndex = 0;
+//            List<WebElement> cellElements = rowElement.findElements(By.xpath("//*[@id=\"table-cadastros-body\"]/tr/td[1]"));
+//            for (WebElement cellElement: cellElements) {
+//                row.put(columnNames.get(columnIndex), cellElement);
+//                columnIndex++;
+//            }
+//            userTable.add(row);
+//        }
+
+//        List<String> cadastroEfetivo = cadastro.get().stream().map(WebElement::getText).collect(Collectors.toList());
+//        List<String> cadastroEsperado = Arrays.asList("João","Maria","masculino","Backend, Testes","Backend");
+//        Assertions.assertArrayEquals(cadastroEfetivo.toArray(), cadastroEsperado.toArray());
     }
 }
